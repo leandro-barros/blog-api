@@ -1,30 +1,28 @@
 package com.framework.blog.api.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class ImagesPosts {
+public class Album {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Lob
-	private byte[] image;
+	private String description;
 	
-	@ManyToOne
-	@JoinColumn(name = "post_id")
-	private Post post;
-	
-	@ManyToOne
-	@JoinColumn(name = "album_id")
-	private Album album;
+	@JsonIgnoreProperties("album")
+	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ImagesPosts> images;
 
 	public Long getId() {
 		return id;
@@ -34,30 +32,22 @@ public class ImagesPosts {
 		this.id = id;
 	}
 
-	public byte[] getImage() {
-		return image;
-	}
-	
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-	
-	public Post getPost() {
-		return post;
-	}
-	
-	public void setPost(Post post) {
-		this.post = post;
-	}
-	
-	public Album getAlbum() {
-		return album;
-	}
-	
-	public void setAlbum(Album album) {
-		this.album = album;
+	public String getDescription() {
+		return description;
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<ImagesPosts> getImages() {
+		return images;
+	}
+
+	public void setImages(List<ImagesPosts> images) {
+		this.images = images;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -74,7 +64,7 @@ public class ImagesPosts {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ImagesPosts other = (ImagesPosts) obj;
+		Album other = (Album) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

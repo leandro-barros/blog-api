@@ -1,4 +1,4 @@
-package com.framework.blog.api;
+package com.framework.blog.api.controller;
 
 import java.util.List;
 
