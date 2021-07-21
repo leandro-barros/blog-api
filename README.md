@@ -6,6 +6,7 @@ Para acessar as rotas da API é necessário estar autenticado, com excessão da 
 (verificar duração do token)
 Para fazer a autenticação, deve-se solicitar um token, para isso faça a seguinte chamada: 
 POST http://localhost:8080/oauth/token
+
 --> No body da requisição, no Form URL Encoded (x-www-form-urlencoded), passe as seguintes chaves com seus respectivos valores:
 cliente: framework
 grant_type: password
