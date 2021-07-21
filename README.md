@@ -21,7 +21,10 @@ POST http://localhost:8080/oauth/token
 | username   |           |
 | password   |           |
 
---> No header, passe as seguintes chaves com seus respectivos valores:
+<ul>
+  <li>No header, passe as seguintes chaves com seus respectivos valores:</li>
+</ul>
+
 | KEY           | VALUE                             |
 |---------------|-----------------------------------|
 | Content-Type  | application/x-www-form-urlencoded |
