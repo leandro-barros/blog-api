@@ -42,7 +42,7 @@ public class AlbumController {
 	
 	@GetMapping
 	public List<Album> findAll() {
-		return albumRepository.findAll();
+		return albumRepository.findAllAlbuns();
 	}
 	
 }
