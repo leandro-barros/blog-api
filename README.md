@@ -1,4 +1,6 @@
 # Execução da aplicação blog-api
+
+No arquivo *application.properties* altere os valores das configurações *spring.datasource.username* e *spring.datasource.password* de acordo com o usuário e senha do postgre instalado em sua máquina.
 Após instalar todas as dependências do projeto, execute a classe principal *BlogApiApplication.java*.
 
 
