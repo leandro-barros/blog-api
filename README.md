@@ -21,17 +21,18 @@ POST http://localhost:8080/oauth/token
 | username   |           |
 | password   |           |
 
-    </li>
-</ul>
-    
-<ul>
-  <li>No header, passe as seguintes chaves com seus respectivos valores:</li>
-</ul>
+  </li>
+
+  <li>
+    No header, passe as seguintes chaves com seus respectivos valores:
 
 | KEY           | VALUE                             |
 |---------------|-----------------------------------|
 | Content-Type  | application/x-www-form-urlencoded |
 | Authorization | Basic ZnJhbWV3b3JrOmZpcnN0        |
+
+  </li>
+</ul>
 
 Ao realizar a autenticação, caso os dados informados estejam corretos, a API retornará o seguinte objeto:
 ```json
