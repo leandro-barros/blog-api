@@ -10,8 +10,9 @@ Para fazer a autenticação, deve-se solicitar um token, para isso faça a segui
 
 POST http://localhost:8080/oauth/token
 
---> No body da requisição, no Form URL Encoded (x-www-form-urlencoded), passe as seguintes chaves com seus respectivos valores:
-
+<ul>
+  <li>No body da requisição, no Form URL Encoded (x-www-form-urlencoded), passe as seguintes chaves com seus respectivos valores:</li>
+</ul>
 
 | KEY        | VALUE     |
 |------------|-----------|
