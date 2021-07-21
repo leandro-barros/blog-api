@@ -21,8 +21,10 @@ POST http://localhost:8080/oauth/token
 | password   |           |
 
 --> No header, passe as seguintes chaves com seus respectivos valores:
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic ZnJhbWV3b3JrOmZpcnN0
+| KEY           | VALUE                             |
+|---------------|-----------------------------------|
+| Content-Type  | application/x-www-form-urlencoded |
+| Authorization | Basic ZnJhbWV3b3JrOmZpcnN0        |
 
 Ao realizar a autenticação, caso os dados informados estejam corretos, a API retornará o seguinte objeto:
 ```json
