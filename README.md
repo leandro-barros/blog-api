@@ -57,4 +57,7 @@ POST http://localhost:8080/oauth/token
 **COMENTÁRIOS**
 
 POST http://localhost:8080/oauth/token
+
 **ÁLBUNS DE FOTOS**
+
+POST http://localhost:8080/oauth/token
