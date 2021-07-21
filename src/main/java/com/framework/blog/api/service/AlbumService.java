@@ -24,6 +24,8 @@ public class AlbumService {
 	private UserRepository userRepository;
 	
 	public void save(Album album, MultipartFile[] files) {
+		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
+		album.setUser(user.get());
 		
 		for (MultipartFile multipartFile : files) {
 			ImagesPosts imagePost = new ImagesPosts();
@@ -49,7 +51,7 @@ public class AlbumService {
 	
 	public void delete(Long id) {
 		Album album = findAlbumById(id);
-		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
 		
 		if (album.getUser().getId().equals(user.get().getId())) {
 			albumRepository.deleteById(id);

@@ -2,6 +2,8 @@ package com.framework.blog.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,13 +38,13 @@ public class PostController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping
-	public void save(@RequestPart("post") Post post, @RequestPart MultipartFile[] files) {
+	public void save(@Valid @RequestPart("post") Post post, @RequestPart MultipartFile[] files) {
 		postService.save(post, files);
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping("/{idPost}/comment")
-	public void saveComment(@PathVariable Long idPost, @RequestBody Comment comment) {
+	public void saveComment(@PathVariable Long idPost, @Valid @RequestBody Comment comment) {
 		commentService.save(idPost, comment);
 	}
 	
@@ -51,9 +53,10 @@ public class PostController {
 		return postRepository.findAll();
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
-		
+		postService.delete(id);
 	}
+	
 }

@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.framework.blog.api.service.exception.DeletePermissionException;
+
 @ControllerAdvice
 public class BlogExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -66,6 +68,15 @@ public class BlogExceptionHandler extends ResponseEntityExceptionHandler {
 
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
+	@ExceptionHandler({ DeletePermissionException.class })
+	public ResponseEntity<Object> handleDeletePermission(DeletePermissionException ex) {
+		String mensagemUsuario = messageSource.getMessage("usuario.deletepermission", null,
+				LocaleContextHolder.getLocale());
+		String mensagemDesenvolvedor = ex.toString();
+		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+		return new ResponseEntity<>(erros, HttpStatus.CONFLICT);
 	}
 
 	private List<Erro> criarListaDeErros(BindingResult bindingResult) {

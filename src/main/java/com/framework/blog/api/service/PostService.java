@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +14,7 @@ import com.framework.blog.api.model.Post;
 import com.framework.blog.api.model.User;
 import com.framework.blog.api.repository.PostRepository;
 import com.framework.blog.api.repository.UserRepository;
+import com.framework.blog.api.service.exception.DeletePermissionException;
 
 @Service
 public class PostService {
@@ -24,6 +26,8 @@ public class PostService {
 	private UserRepository userRepository;
 	
 	public void save(Post post, MultipartFile[] files) {
+		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
+		post.setUser(user.get());
 		
 		for (MultipartFile multipartFile : files) {
 			ImagesPosts imagePost = new ImagesPosts();
@@ -35,12 +39,10 @@ public class PostService {
 			}
 			
 			imagePost.setPost(post);
-			System.out.println("entrou"+imagePost.getImage());
 			post.getImages().add(imagePost);
 			
 		}
 		
-		post.getComments().forEach(c -> c.setPost(post));
 		post.getLinks().forEach(l -> l.setPost(post));
 		
 		postRepository.save(post);
@@ -48,15 +50,20 @@ public class PostService {
 	
 	public Post findPostById(Long id) {
 		Optional<Post> postSaved = postRepository.findById(id);
+		if (!postSaved.isPresent()) {
+			throw new EmptyResultDataAccessException(1);
+		}
 		return postSaved.get();
 	}
 	
 	public void delete(Long id) {
 		Post post = findPostById(id);
-		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
 		
-		if (post.getUser().getId().equals(user.get().getId())) {
-			postRepository.deleteById(id);
+		if (!post.getUser().equals(user.get())) {
+			throw new DeletePermissionException();
 		}
+		
+		postRepository.deleteById(id);
 	}
 }
