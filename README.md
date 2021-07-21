@@ -4,7 +4,7 @@ Após instalar todas as dependências do projeto, execute-o.
 Para acessar as rotas da API é necessário estar autenticado, com excessão da rota http://localhost:8080/users .
 
 
-**AUTENTICAÇÃO NO SISTEMA**
+**SEGURANÇA**
 
 Para fazer a autenticação, deve-se solicitar um token, para isso faça a seguinte chamada: 
 
@@ -41,3 +41,11 @@ Ao realizar a autenticação, caso os dados informados estejam corretos, a API r
 }
 ```
 O valor retornado no atributo "access_token" é o token que deverá ser utilizado nas chamadas que necessitam de autenticação. No header dessas requisições, passe a chave "Authorization" e no valor dela passe o token precedido pela palavra Bearer (ex.: "Bearer eyJhbGciOiJIUzI1..."). Obs.: o token tem duração de X horas.
+
+**USUÁRIOS**
+
+**POSTS**
+
+**COMENTÁRIOS**
+
+**ÁLBUNS DE FOTOS**
