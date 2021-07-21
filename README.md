@@ -1,4 +1,4 @@
-# blog-api: execução da aplicação
+# Execução da aplicação blog-api
 Após instalar todas as dependências do projeto, execute a classe principal *BlogApiApplication.java*.
 
 Para acessar as rotas da API é necessário estar autenticado, com excessão da rota http://localhost:8080/users .
