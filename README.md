@@ -12,7 +12,7 @@ POST http://localhost:8080/oauth/token
 
 <ul>
   <li>
-    No body da requisição, no Form URL Encoded (*x-www-form-urlencoded*), passe as seguintes chaves com seus respectivos valores:
+    No body da requisição, no Form URL Encoded (x-www-form-urlencoded), passe as seguintes chaves com seus respectivos valores:
 
 | KEY        | VALUE     |
 |------------|-----------|
