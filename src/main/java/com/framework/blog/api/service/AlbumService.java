@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +14,7 @@ import com.framework.blog.api.model.ImagesPosts;
 import com.framework.blog.api.model.User;
 import com.framework.blog.api.repository.AlbumRepository;
 import com.framework.blog.api.repository.UserRepository;
+import com.framework.blog.api.service.exception.DeletePermissionException;
 
 @Service
 public class AlbumService {
@@ -38,7 +40,6 @@ public class AlbumService {
 			
 			imagePost.setAlbum(album);
 			album.getImages().add(imagePost);
-			
 		}
 		
 		albumRepository.save(album);
@@ -46,16 +47,21 @@ public class AlbumService {
 	
 	public Album findAlbumById(Long id) {
 		Optional<Album> albumSaved = albumRepository.findById(id);
+		
+		if (! albumSaved.isPresent()) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		
 		return albumSaved.get();
 	}
 	
 	public void delete(Long id) {
-		Album album = findAlbumById(id);
 		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
 		
-		if (album.getUser().getId().equals(user.get().getId())) {
-			albumRepository.deleteById(id);
+		if (!findAlbumById(id).getUser().equals(user.get())) {
+			throw new DeletePermissionException();
 		}
+		albumRepository.deleteById(id);
 	}
 
 }

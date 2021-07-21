@@ -49,7 +49,7 @@ public class PostController {
 	}
 	
 	@GetMapping
-	public List<Post> lista() {
+	public List<Post> findAll() {
 		return postRepository.findAll();
 	}
 	
