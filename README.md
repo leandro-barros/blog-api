@@ -3,6 +3,7 @@ Após instalar todas as dependências do projeto, execute-o.
 
 Para acessar as rotas da API é necessário estar autenticado, com excessão da rota http://localhost:8080/users
 
+
 **AUTENTICAÇÃO NO SISTEMA**
 
 (verificar duração do token)
