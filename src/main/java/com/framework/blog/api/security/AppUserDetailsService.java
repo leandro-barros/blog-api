@@ -23,9 +23,9 @@ public class AppUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 		Optional<User> userOptional = userRepository.findByLogin(login);
-		User usuario = userOptional.orElseThrow(() -> new UsernameNotFoundException("Login e/ou senha inválido(a)!"));
+		User user = userOptional.orElseThrow(() -> new UsernameNotFoundException("Login e/ou senha inválido(a)!"));
 		Set<SimpleGrantedAuthority> authorities = new HashSet<SimpleGrantedAuthority>();
-		return new org.springframework.security.core.userdetails.User(login, usuario.getPassword(), authorities);
+		return new org.springframework.security.core.userdetails.User(login, user.getPassword(), authorities);
 	}
 
 }

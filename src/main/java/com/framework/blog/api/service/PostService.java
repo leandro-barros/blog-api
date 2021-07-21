@@ -4,18 +4,24 @@ import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.framework.blog.api.model.ImagesPosts;
 import com.framework.blog.api.model.Post;
+import com.framework.blog.api.model.User;
 import com.framework.blog.api.repository.PostRepository;
+import com.framework.blog.api.repository.UserRepository;
 
 @Service
 public class PostService {
 
 	@Autowired
 	private PostRepository postRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	public void save(Post post, MultipartFile[] files) {
 		
@@ -43,5 +49,14 @@ public class PostService {
 	public Post findPostById(Long id) {
 		Optional<Post> postSaved = postRepository.findById(id);
 		return postSaved.get();
+	}
+	
+	public void delete(Long id) {
+		Post post = findPostById(id);
+		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+		
+		if (post.getUser().getId().equals(user.get().getId())) {
+			postRepository.deleteById(id);
+		}
 	}
 }
