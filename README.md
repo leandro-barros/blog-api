@@ -48,7 +48,9 @@ O valor retornado no atributo "access_token" é o token que deverá ser utilizad
 
 **USUÁRIOS**
 
-POST http://localhost:8080/users (Cadastra um usuário)
+<ul>
+  <li>
+	POST http://localhost:8080/users (Cadastra um usuário)
 
 Objeto request:
 ```json
@@ -58,6 +60,8 @@ Objeto request:
   "password": "String"
 }
 ```
+  </li>
+</ul>
 
 **POSTS**
 
