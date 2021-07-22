@@ -48,16 +48,27 @@ O valor retornado no atributo "access_token" é o token que deverá ser utilizad
 
 **USUÁRIOS**
 
-POST http://localhost:8080/oauth/token
+POST http://localhost:8080/users
 
 **POSTS**
 
-POST http://localhost:8080/oauth/token
+POST http://localhost:8080/posts
+
+GET http://localhost:8080/posts
+
+DELETE http://localhost:8080/posts/{id}
 
 **COMENTÁRIOS**
 
-POST http://localhost:8080/oauth/token
+DELETE http://localhost:8080/comments/{id}
+
+POST http://localhost:8080/posts/{idPost}/comment
 
 **ÁLBUNS DE FOTOS**
 
-POST http://localhost:8080/oauth/token
+GET http://localhost:8080/albuns
+
+POST http://localhost:8080/albuns
+
+DELETE http://localhost:8080/albuns/{id}
+
