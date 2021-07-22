@@ -6,6 +6,25 @@ No arquivo **application.properties** altere os valores das configurações **sp
 **SEGURANÇA**
 
 Para acessar as rotas da API é necessário estar autenticado, com excessão da rota http://localhost:8080/users.
+Então o primeiro passo é cadastrar um usuário da seguinte forma:
+
+**USUÁRIOS**
+
+<ul>
+  <li>
+    POST http://localhost:8080/users (Cadastra um usuário)
+
+Objeto request:
+```json
+{
+  "name": "Leandro Barros",
+  "login": "admin",
+  "password": "admin"
+}
+```
+  </li>
+</ul>
+
 Para fazer a autenticação, deve-se solicitar um token JWT, para isso faça a seguinte chamada: 
 
 POST http://localhost:8080/oauth/token
@@ -18,8 +37,8 @@ POST http://localhost:8080/oauth/token
 |------------|-----------|
 | client     | framework |
 | grant_type | password  |
-| username   |           |
-| password   |           |
+| username   | admin     | Usuário cadastrado acima
+| password   | admin     | Senha do usuário cadastrado acima
 
   </li>
 
@@ -34,7 +53,7 @@ POST http://localhost:8080/oauth/token
   </li>
 </ul>
 
-Ao realizar a autenticação, caso os dados informados estejam corretos, a API retornará o seguinte objeto:
+Ao realizar a autenticação, caso os dados informados estejam corretos, a API retornará objeto semelhante a este:
 ```json
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjY5MDc5OTksInVzZXJfbmFtZSI6InRlc3RlMSIsImp0aSI6Ijk3YmQyNjQzLTNmNTAtNDlkOC1iZTIyLTRjMGQ2ZWVlYjBlOSIsImNsaWVudF9pZCI6ImZyYW1ld29yayIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdfQ.GftyR8_mc-dYyFCdxdfn_ex0Z7nIEolnS6D1gttaCUQ",
@@ -44,24 +63,8 @@ Ao realizar a autenticação, caso os dados informados estejam corretos, a API r
   "jti": "97bd2643-3f50-49d8-be22-4c0d6eeeb0e9"
 }
 ```
-O valor retornado no atributo "access_token" é o token que deverá ser utilizado nas chamadas que necessitam de autenticação. No header dessas requisições, passe a chave "Authorization" e no valor dela passe o token precedido pela palavra Bearer (ex.: "Bearer eyJhbGciOiJIUzI1..."). Obs.: o token tem duração de X horas.
+O valor retornado no atributo "access_token" é o token que deverá ser utilizado nas chamadas que necessitam de autenticação. No header dessas requisições, passe a chave "Authorization" e no valor dela passe o token precedido pela palavra Bearer (ex.: "Bearer eyJhbGciOiJIUzI1..."). Obs.: o token tem duração de 1 dia.
 
-**USUÁRIOS**
-
-<ul>
-  <li>
-    POST http://localhost:8080/users (Cadastra um usuário)
-
-Objeto request:
-```json
-{
-  "name": "String",
-  "login": "String",
-  "password": "String"
-}
-```
-  </li>
-</ul>
 
 **POSTS**
 
