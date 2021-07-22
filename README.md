@@ -61,6 +61,8 @@ Objeto request:
 
 **POSTS**
 
+GET http://localhost:8080/posts (Lista todos os posts)
+
 POST http://localhost:8080/posts (Cadastra um post)
 
 No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
@@ -76,9 +78,7 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 	]
 }
 ```
-Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar uma imagem.
-
-GET http://localhost:8080/posts (Lista todos os posts)
+Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
 
 DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
 
@@ -100,6 +100,15 @@ DELETE http://localhost:8080/comments/{id} (Exclui um determinado comentário)
 GET http://localhost:8080/albuns (Lista todos os álbuns)
 
 POST http://localhost:8080/albuns (Cadastra um álbum de foto)
+
+No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "album" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
+
+```json
+{
+	"description": "Praia"
+}
+```
+Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
 
 DELETE http://localhost:8080/albuns/{id} (Exclui um determinado álbum)
 
