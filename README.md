@@ -1,12 +1,12 @@
 # Execução da aplicação blog-api
 
-No arquivo **application.properties** altere os valores das configurações **spring.datasource.username** e **spring.datasource.password** de acordo com o usuário e senha do postgre instalado em sua máquina. Após isso, baixe as dependências do projeto e, em seguida, execute a classe principal *BlogApiApplication.java*.
+No arquivo **application.properties** altere os valores das configurações **spring.datasource.username** e **spring.datasource.password** de acordo com o usuário e senha do postgre instalado em sua máquina e crie um banco de dados com a descriçaõ **blog_api**. Após isso, baixe as dependências do projeto e, em seguida, execute a classe principal *BlogApiApplication.java*.
 
 
 **SEGURANÇA**
 
 Para acessar as rotas da API é necessário estar autenticado, com excessão da rota http://localhost:8080/users.
-Para fazer a autenticação, deve-se solicitar um token, para isso faça a seguinte chamada: 
+Para fazer a autenticação, deve-se solicitar um token JWT, para isso faça a seguinte chamada: 
 
 POST http://localhost:8080/oauth/token
 
