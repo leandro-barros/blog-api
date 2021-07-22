@@ -26,7 +26,6 @@ public class ImagesPosts {
 	private Post post;
 
 	public Long getId() {
-		
 		return id;
 	}
 

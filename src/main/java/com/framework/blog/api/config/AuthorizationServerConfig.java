@@ -28,7 +28,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			.secret("$2a$10$yxwSYYtZtNW9tafT1zsYgebkyfhIgfYTjoQYrHp9JhBb53JrTB8mq") // Senha: first
 			.scopes("read", "write")
 			.authorizedGrantTypes("password")
-			.accessTokenValiditySeconds(1800);
+			.accessTokenValiditySeconds(3600 * 24);
 	}
 
 	@Override
