@@ -76,6 +76,7 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 	]
 }
 ```
+Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar uma imagem.
 
 GET http://localhost:8080/posts (Lista todos os posts)
 
