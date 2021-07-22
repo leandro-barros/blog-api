@@ -71,6 +71,13 @@ DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
 
 POST http://localhost:8080/posts/{idPost}/comment (Cadastra um comentário para um determinado post)
 
+Objeto request:
+```json
+{
+  "description": "String"
+}
+```
+
 DELETE http://localhost:8080/comments/{id} (Exclui um determinado comentário)
 
 **ÁLBUNS DE FOTOS**
