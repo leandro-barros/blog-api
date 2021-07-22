@@ -50,7 +50,7 @@ O valor retornado no atributo "access_token" é o token que deverá ser utilizad
 
 <ul>
   <li>
-    **POST http://localhost:8080/users** (Cadastra um usuário)
+    POST http://localhost:8080/users (Cadastra um usuário)
 
 Objeto request:
 ```json
