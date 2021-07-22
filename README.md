@@ -126,7 +126,7 @@ Objeto request:
   <li>
     POST http://localhost:8080/albuns (Cadastra um álbum de foto)
   
-No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "album" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
+No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "album" com o valor do tipo "Text (Multi-line)". No valor da chave "album" deve passar um objeto como o abaixo:
 
 ```json
 {
