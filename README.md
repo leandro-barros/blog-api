@@ -65,26 +65,32 @@ Objeto request:
 
 **POSTS**
 
-GET http://localhost:8080/posts (Lista todos os posts)
+<ul>
+  	<li>
+		GET http://localhost:8080/posts (Lista todos os posts)
+  	</li>
+	<li>
+		POST http://localhost:8080/posts (Cadastra um post)
+	
+		No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
 
-POST http://localhost:8080/posts (Cadastra um post)
-
-No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
-
-```json
-{
-	"text": "String",
-	"title": "String",
-	"links" : [
+		```json
 		{
-			"link": "String"
+			"text": "String",
+			"title": "String",
+			"links" : [
+				{
+					"link": "String"
+				}
+			]
 		}
-	]
-}
-```
-Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
-
-DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
+		```
+		Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
+	</li>
+	<li>
+		DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
+	</li>
+</ul>
 
 **COMENTÁRIOS**
 
