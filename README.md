@@ -37,8 +37,8 @@ POST http://localhost:8080/oauth/token
 |------------|-----------|
 | client     | framework |
 | grant_type | password  |
-| username   | admin     | Usuário cadastrado acima
-| password   | admin     | Senha do usuário cadastrado acima
+| username   | admin(Usuário cadastrado acima)     | 
+| password   | admin (Senha do usuário cadastrado acima     | 
 
   </li>
 
@@ -76,6 +76,7 @@ O valor retornado no atributo "access_token" é o token que deverá ser utilizad
     POST http://localhost:8080/posts (Cadastra um post)
 	
 No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
+Obs: No "Text (Multi-line)" selecione o "Editor syntax" como "JSON"
 
 ```json
 {
@@ -127,7 +128,8 @@ Objeto request:
     POST http://localhost:8080/albuns (Cadastra um álbum de foto)
   
 No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "album" com o valor do tipo "Text (Multi-line)". No valor da chave "album" deve passar um objeto como o abaixo:
-
+Obs: No "Text (Multi-line)" selecione o "Editor syntax" como "JSON"
+	  
 ```json
 {
 	"description": "String"
