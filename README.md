@@ -50,7 +50,7 @@ O valor retornado no atributo "access_token" é o token que deverá ser utilizad
 
 <ul>
   <li>
-	POST http://localhost:8080/users (Cadastra um usuário)
+    POST http://localhost:8080/users (Cadastra um usuário)
 
 Objeto request:
 ```json
@@ -66,11 +66,11 @@ Objeto request:
 **POSTS**
 
 <ul>
-  	<li>
-		GET http://localhost:8080/posts (Lista todos os posts)
-  	</li>
-	<li>
-		POST http://localhost:8080/posts (Cadastra um post)
+ <li>
+    GET http://localhost:8080/posts (Lista todos os posts)
+ </li>
+ <li>
+    POST http://localhost:8080/posts (Cadastra um post)
 	
 No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
 
@@ -86,10 +86,10 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 }
 ```
 Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
-	</li>
-	<li>
-		DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
-	</li>
+  </li>
+  <li>
+    DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
+  </li>
 </ul>
 
 **COMENTÁRIOS**
