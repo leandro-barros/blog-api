@@ -48,27 +48,27 @@ O valor retornado no atributo "access_token" é o token que deverá ser utilizad
 
 **USUÁRIOS**
 
-POST http://localhost:8080/users
+POST http://localhost:8080/users (Cadastra um usuário)
 
 **POSTS**
 
-POST http://localhost:8080/posts
+POST http://localhost:8080/posts (Cadastra um post)
 
-GET http://localhost:8080/posts
+GET http://localhost:8080/posts (Lista todos os posts)
 
-DELETE http://localhost:8080/posts/{id}
+DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
 
 **COMENTÁRIOS**
 
-DELETE http://localhost:8080/comments/{id}
+POST http://localhost:8080/posts/{idPost}/comment (Cadastra um comentário para um determinado post)
 
-POST http://localhost:8080/posts/{idPost}/comment
+DELETE http://localhost:8080/comments/{id} (Exclui um determinado comentário)
 
 **ÁLBUNS DE FOTOS**
 
-GET http://localhost:8080/albuns
+GET http://localhost:8080/albuns (Lista todos os álbuns)
 
-POST http://localhost:8080/albuns
+POST http://localhost:8080/albuns (Cadastra um álbum de foto)
 
-DELETE http://localhost:8080/albuns/{id}
+DELETE http://localhost:8080/albuns/{id} (Exclui um determinado álbum)
 
