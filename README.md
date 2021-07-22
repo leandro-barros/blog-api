@@ -72,20 +72,20 @@ Objeto request:
 	<li>
 		POST http://localhost:8080/posts (Cadastra um post)
 	
-		No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
+No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
 
-		```json
+```json
+{
+	"text": "String",
+	"title": "String",
+	"links" : [
 		{
-			"text": "String",
-			"title": "String",
-			"links" : [
-				{
-					"link": "String"
-				}
-			]
+			"link": "String"
 		}
-		```
-		Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
+	]
+}
+```
+Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
 	</li>
 	<li>
 		DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
