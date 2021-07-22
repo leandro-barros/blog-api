@@ -86,6 +86,10 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 }
 ```
 Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem. Obs.: todas as imagens anexadas devem ter como chave a palavra "files".
+	 
+A seguir é exibido um exemplo de como a requisição deve ser feita.
+
+![post](https://user-images.githubusercontent.com/13985064/126583005-7e7e1ac1-d3b1-44e0-894a-179f8a8be7a2.jpeg)
   </li>
   <li>
     DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
@@ -127,6 +131,10 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 }
 ```
 Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem. Obs.: todas as imagens anexadas devem ter como chave a palavra "files".
+	  
+A seguir é exibido um exemplo de como a requisição deve ser feita.
+	  
+![album](https://user-images.githubusercontent.com/13985064/126583242-e7086e20-0ea8-4a57-abac-db85249775ba.jpeg)
   </li>
   <li>
     DELETE http://localhost:8080/albuns/{id} (Exclui um determinado álbum)
