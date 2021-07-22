@@ -62,6 +62,7 @@ Objeto request:
 **POSTS**
 
 POST http://localhost:8080/posts (Cadastra um post)
+
 No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "post" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
 
 ```json
