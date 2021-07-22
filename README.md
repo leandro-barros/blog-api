@@ -94,7 +94,9 @@ Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do ti
 
 **COMENTÁRIOS**
 
-POST http://localhost:8080/posts/{idPost}/comment (Cadastra um comentário para um determinado post)
+<ul>
+	<li>
+		POST http://localhost:8080/posts/{idPost}/comment (Cadastra um comentário para um determinado post)
 
 Objeto request:
 ```json
@@ -102,8 +104,11 @@ Objeto request:
   "description": "String"
 }
 ```
-
-DELETE http://localhost:8080/comments/{id} (Exclui um determinado comentário)
+	</li>
+	<li>
+		DELETE http://localhost:8080/comments/{id} (Exclui um determinado comentário)
+	</li>
+</ul>
 
 **ÁLBUNS DE FOTOS**
 
