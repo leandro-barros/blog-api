@@ -11,10 +11,10 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.Type;
 
 @Entity
-public class ImagesPosts {
+public class AlbumImages {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Lob
@@ -22,11 +22,10 @@ public class ImagesPosts {
 	private byte[] image;
 	
 	@ManyToOne
-	@JoinColumn(name = "post_id")
-	private Post post;
+	@JoinColumn(name = "album_id")
+	private Album album;
 
 	public Long getId() {
-		
 		return id;
 	}
 
@@ -42,12 +41,12 @@ public class ImagesPosts {
 		this.image = image;
 	}
 	
-	public Post getPost() {
-		return post;
+	public Album getAlbum() {
+		return album;
 	}
 	
-	public void setPost(Post post) {
-		this.post = post;
+	public void setAlbum(Album album) {
+		this.album = album;
 	}
 
 	@Override
@@ -66,7 +65,7 @@ public class ImagesPosts {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ImagesPosts other = (ImagesPosts) obj;
+		AlbumImages other = (AlbumImages) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

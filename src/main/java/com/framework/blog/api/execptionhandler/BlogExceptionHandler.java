@@ -22,6 +22,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.framework.blog.api.service.exception.DeletePermissionException;
+import com.framework.blog.api.service.exception.LoginRegisteredException;
 
 @ControllerAdvice
 public class BlogExceptionHandler extends ResponseEntityExceptionHandler {
@@ -72,7 +73,16 @@ public class BlogExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler({ DeletePermissionException.class })
 	public ResponseEntity<Object> handleDeletePermission(DeletePermissionException ex) {
-		String mensagemUsuario = messageSource.getMessage("usuario.deletepermission", null,
+		String mensagemUsuario = messageSource.getMessage("user.deletepermission", null,
+				LocaleContextHolder.getLocale());
+		String mensagemDesenvolvedor = ex.toString();
+		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+		return new ResponseEntity<>(erros, HttpStatus.CONFLICT);
+	}
+	
+	@ExceptionHandler({ LoginRegisteredException.class })
+	public ResponseEntity<Object> handleLoginRegistered(LoginRegisteredException ex) {
+		String mensagemUsuario = messageSource.getMessage("user.registered", null,
 				LocaleContextHolder.getLocale());
 		String mensagemDesenvolvedor = ex.toString();
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));

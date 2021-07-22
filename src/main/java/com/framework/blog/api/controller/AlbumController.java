@@ -19,7 +19,7 @@ import com.framework.blog.api.repository.AlbumRepository;
 import com.framework.blog.api.service.AlbumService;
 
 @RestController
-@RequestMapping("albuns")
+@RequestMapping("/albuns")
 public class AlbumController {
 	
 	@Autowired
@@ -42,7 +42,7 @@ public class AlbumController {
 	
 	@GetMapping
 	public List<Album> findAll() {
-		return albumRepository.findAllAlbuns();
+		return albumRepository.findAll();
 	}
 	
 }

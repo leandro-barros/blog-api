@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.framework.blog.api.model.User;
 import com.framework.blog.api.repository.UserRepository;
+import com.framework.blog.api.service.exception.LoginRegisteredException;
 
 @Service
 public class UserService {
@@ -17,6 +18,9 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	public void save(User user) {
+		if (userRepository.findByLogin(user.getLogin()).isPresent()) {
+			throw new LoginRegisteredException();
+		}
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 	}

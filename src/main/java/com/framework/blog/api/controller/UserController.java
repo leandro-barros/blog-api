@@ -12,7 +12,7 @@ import com.framework.blog.api.model.User;
 import com.framework.blog.api.service.UserService;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired

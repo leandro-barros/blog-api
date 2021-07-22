@@ -24,7 +24,7 @@ import com.framework.blog.api.service.CommentService;
 import com.framework.blog.api.service.PostService;
 
 @RestController
-@RequestMapping("posts")
+@RequestMapping("/posts")
 public class PostController {
 	
 	@Autowired

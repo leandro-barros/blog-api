@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Album {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@NotBlank
@@ -26,7 +26,7 @@ public class Album {
 	
 	@JsonIgnoreProperties("album")
 	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ImagesPosts> images;
+	private List<AlbumImages> images;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -48,11 +48,11 @@ public class Album {
 		this.description = description;
 	}
 
-	public List<ImagesPosts> getImages() {
+	public List<AlbumImages> getImages() {
 		return images;
 	}
-
-	public void setImages(List<ImagesPosts> images) {
+	
+	public void setImages(List<AlbumImages> images) {
 		this.images = images;
 	}
 	

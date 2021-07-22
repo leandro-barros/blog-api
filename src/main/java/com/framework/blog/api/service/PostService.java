@@ -1,6 +1,7 @@
 package com.framework.blog.api.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class PostService {
 		Optional<User> user = userRepository.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
 		post.setUser(user.get());
 		
+		post.setImages(new ArrayList<ImagesPosts>());
 		for (MultipartFile multipartFile : files) {
 			ImagesPosts imagePost = new ImagesPosts();
 			
