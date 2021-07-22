@@ -112,10 +112,13 @@ Objeto request:
 
 **ÁLBUNS DE FOTOS**
 
-GET http://localhost:8080/albuns (Lista todos os álbuns)
-
-POST http://localhost:8080/albuns (Cadastra um álbum de foto)
-
+<ul>
+  <li>
+    GET http://localhost:8080/albuns (Lista todos os álbuns)
+  </li>
+  <li>
+    POST http://localhost:8080/albuns (Cadastra um álbum de foto)
+  
 No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve passar a chave "album" com o valor do tipo "Text (Multi-line)". No valor da chave "post" deve passar um objeto como o abaixo:
 
 ```json
@@ -124,6 +127,8 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 }
 ```
 Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
-
-DELETE http://localhost:8080/albuns/{id} (Exclui um determinado álbum)
-
+  </li>
+  <li>
+    DELETE http://localhost:8080/albuns/{id} (Exclui um determinado álbum)
+  </li>
+</ul>
