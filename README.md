@@ -85,7 +85,7 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 	]
 }
 ```
-Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
+Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem. Obs.: todas as imagens anexadas devem ter como chave a palavra "files".
   </li>
   <li>
     DELETE http://localhost:8080/posts/{id} (Exclui um determinado post)
@@ -126,7 +126,7 @@ No body, deve-se utilizar o Multipart Form, sendo que obrigatoriamente deve pass
 	"description": "String"
 }
 ```
-Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem.
+Para fazer o envio das imagens, deve-se passar a chave "files" com o valor do tipo "File" e anexar a imagem. Obs.: todas as imagens anexadas devem ter como chave a palavra "files".
   </li>
   <li>
     DELETE http://localhost:8080/albuns/{id} (Exclui um determinado álbum)
